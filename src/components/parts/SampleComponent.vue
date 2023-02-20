@@ -3,10 +3,10 @@
   <v-textarea label="Body" variant="solo" v-model="body"></v-textarea>
 </template>
 <script lang="ts" setup>
-import { useTest } from "~~/src/pages/index.vue";
+import { getRevisionItemData } from "~/composables/getDataAPI";
 
-const test = useTest();
+const dummyData = getRevisionItemData();
 
-const title = ref(test.testTitle);
-const body = ref(test.testBody);
+const title = ref((await dummyData).testTitle);
+const body = ref((await dummyData).testBody);
 </script>
