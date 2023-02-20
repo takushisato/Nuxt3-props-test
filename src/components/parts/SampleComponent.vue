@@ -3,17 +3,10 @@
   <v-textarea label="Body" variant="solo" v-model="body"></v-textarea>
 </template>
 <script lang="ts" setup>
-const props = defineProps<{
-  testTitle: string | null;
-  testBody: string | null;
-}>();
+import { useTest } from "~~/src/pages/index.vue";
 
-console.log(props);
+const test = useTest();
 
-// 一度変数で受け渡し
-const hoge = props.testTitle;
-const fuga = props.testBody;
-
-const title = ref(hoge);
-const body = ref(fuga);
+const title = ref(test.testTitle);
+const body = ref(test.testBody);
 </script>
