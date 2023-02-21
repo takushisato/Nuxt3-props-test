@@ -8,8 +8,6 @@ const props = defineProps<{
   testBody: string | null;
 }>();
 
-console.log(props);
-
 // 一度変数で受け渡し
 const hoge = props.testTitle;
 const fuga = props.testBody;

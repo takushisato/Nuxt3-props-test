@@ -5,14 +5,11 @@
   </div>
 </template>
 <script setup>
+// 初期値の空文字が渡される
 let testTitle = "";
 let testBody = "";
 
-// 初期値の空文字が渡される
 async function testFetch() {
-  // 存在しないAPIにアクセスしようとしてエラーになるのでコメントアウト
-  // const { data } = await useFetch("");
-
   // sleepでAPIアクセスの代わりにする
   await sleep(2000);
 
@@ -27,12 +24,6 @@ function sleep(msec) {
     }, msec);
   });
 }
-
-// async await じゃなければ値は更新される
-// function testFetch() {
-//   testTitle = "テストタイトル";
-//   testBody = "テストボディ";
-// }
 
 // awaitをつける
 await testFetch();
