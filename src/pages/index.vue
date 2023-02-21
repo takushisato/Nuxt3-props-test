@@ -10,9 +10,22 @@ let testBody = "";
 
 // 初期値の空文字が渡される
 async function testFetch() {
-  const { data } = await useFetch("");
+  // 存在しないAPIにアクセスしようとしてエラーになるのでコメントアウト
+  // const { data } = await useFetch("");
+
+  // sleepでAPIアクセスの代わりにする
+  await sleep(2000);
+
   testTitle = "テストタイトル";
   testBody = "テストボディ";
+}
+
+function sleep(msec) {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve();
+    }, msec);
+  });
 }
 
 // async await じゃなければ値は更新される
@@ -20,7 +33,9 @@ async function testFetch() {
 //   testTitle = "テストタイトル";
 //   testBody = "テストボディ";
 // }
-testFetch();
+
+// awaitをつける
+await testFetch();
 </script>
 <style scoped>
 .container {
